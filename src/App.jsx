@@ -17,7 +17,7 @@ function App() {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
     axios.get("https://api.quotable.io/random").then((response) => {
       document.getElementById("qoute").innerHTML = response.data.content;
-      document.getElementById("author").innerHTML = response.data.author;
+      document.getElementById("author").innerHTML = "-" + response.data.author;
     });
 
     const elements = document.getElementsByClassName("change");
@@ -46,13 +46,13 @@ function App() {
         ></p>
         <div className="flex flex-col h-[100px] justify-around md:flex-row  items-center   md:justify-between  ">
           <div className="flex gap-1  ">
-            <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 c">
+            <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 rounded-sm c">
               <InstagramIcon
                 className=" text-white rounded-sm  "
                 fontSize="small"
               />
             </div>
-            <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 c">
+            <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 rounded-sm c">
               <TwitterIcon
                 className=" text-white rounded-sm "
                 fontSize="small"
