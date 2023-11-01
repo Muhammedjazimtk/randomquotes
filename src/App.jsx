@@ -13,6 +13,11 @@ function App() {
     });
   }, []);
 
+  function play() {
+    var audio = document.getElementById("audio");
+    audio.play();
+  }
+
   function handleClick() {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
     axios.get("https://api.quotable.io/random").then((response) => {
@@ -46,29 +51,41 @@ function App() {
         ></p>
         <div className="flex flex-col h-[100px] justify-around md:flex-row  items-center   md:justify-between  ">
           <div className="flex gap-1  ">
-            <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 rounded-sm c">
-              <InstagramIcon
-                className=" text-white rounded-sm  "
-                fontSize="small"
-              />
-            </div>
-            <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 rounded-sm c">
-              <TwitterIcon
-                className=" text-white rounded-sm "
-                fontSize="small"
-              />
-            </div>
+            <a title="post on instagram" onClick={play}>
+              <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 rounded-sm c">
+                <InstagramIcon
+                  className=" text-white rounded-sm  "
+                  fontSize="small"
+                />
+              </div>
+            </a>
+
+            <a
+              title="post on twitter"
+              target="_blank"
+              rel="noreferrer"
+              onClick={play}
+            >
+              <div className="flex justify-center items-center h-[40px] w-[40px] bg-green-300 rounded-sm c">
+                <TwitterIcon
+                  className=" text-white rounded-sm "
+                  fontSize="small"
+                />
+              </div>
+            </a>
           </div>
           <button
             id="btn"
             onClick={handleClick}
-            className="bg-green-300 text-white font-normal py-2 px-3 text-sm rounded-sm c "
+            className="bg-green-300 text-white font-normal py-2 px-3 text-sm rounded-sm c animate-pulse hover:filter
+             "
           >
             New quote
           </button>
         </div>
       </div>
       <p className="text-white text-sm">by jazim</p>
+      <audio id="audio" src="./src/assets/rick.mp3"></audio>
     </div>
   );
 }
