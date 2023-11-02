@@ -16,6 +16,10 @@ function App() {
   function play() {
     var audio = document.getElementById("audio");
     audio.play();
+    const text = document.getElementById("text");
+    const video = document.getElementById("video");
+    text.style.display = "block";
+    video.style.display = "block";
   }
 
   function handleClick() {
@@ -86,6 +90,21 @@ function App() {
       </div>
       <p className="text-white text-sm">by jazim</p>
       <audio id="audio" src="/rick.mp3"></audio>
+      <p id="text" className="text-white animate-bounce hidden text-xl">
+        there&apos;s always space left for fun 😜
+      </p>
+      <video
+        id="video"
+        className="hidden"
+        width="300px"
+        height="300px"
+        controls
+        autoPlay
+      >
+        <source src="./src/assets/rick.mp4" type="video/mp4" />
+        <source src="./src/assets/rick.mp4" type="video/ogg" />
+        noooo
+      </video>
     </div>
   );
 }
