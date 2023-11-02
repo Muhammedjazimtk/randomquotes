@@ -85,7 +85,7 @@ function App() {
         </div>
       </div>
       <p className="text-white text-sm">by jazim</p>
-      <audio id="audio" src="./src/assets/rick.mp3"></audio>
+      <audio id="audio" src="../public/rick.mp3"></audio>
     </div>
   );
 }
